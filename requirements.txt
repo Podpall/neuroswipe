@@ -1,0 +1,14 @@
+h5py
+numpy
+pandas
+tqdm
+tslearn
+hydra-core
+torch
+accelerate
+transformers
+sentencepiece
+protobuf
+jupyter
+jsonlines
+tensorboardX

@@ -1,0 +1,27 @@
+fitter:
+  _target_: train_seq2seq.Fitter
+  train_data_path: ./data/train_processed.csv
+  valid_data_path: ./data/valid_processed.csv
+  model_name_or_path: ai-forever/ruT5-base
+  from_scratch_config: null
+  max_seq_length: 512
+  training_arguments:
+    _target_: transformers.TrainingArguments
+    output_dir: swipe_t5_base
+    learning_rate: 1e-4
+    per_device_train_batch_size: 32
+    per_device_eval_batch_size: 32
+    max_steps: 1_875_000
+    weight_decay: 0.01
+    evaluation_strategy: steps
+    save_strategy: steps
+    eval_steps: 1000
+    save_steps: 1000
+    warmup_steps: 1000
+    save_total_limit: 2
+    metric_for_best_model: eval_loss
+    load_best_model_at_end: true
+    report_to: tensorboard
+    fp16: true
+    dataloader_num_workers: 0
+    gradient_checkpointing: true
