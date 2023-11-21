@@ -78,9 +78,9 @@ class Preprocessor:
                 row = self.build_row(obj)
                 label = 'dummy\n'
                 if 'word' in obj:
-                    label = ' '.join(obj['word'])
+                    label = ' '.join(obj['word']) + '\n'
                 elif valid_labels is not None:
-                    label = valid_labels[idx]
+                    label = ' '.join(valid_labels[idx])
                 out_f.write(f"{row},{label}")
 
 
